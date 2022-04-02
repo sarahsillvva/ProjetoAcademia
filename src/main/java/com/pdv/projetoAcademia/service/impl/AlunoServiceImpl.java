@@ -28,7 +28,7 @@ public class AlunoServiceImpl implements AlunoService{
 	public Aluno atualizarAluno (Aluno aluno) {
 		Optional<Aluno> resposta = alunoRepository.findById(aluno.getId());
 		if (resposta.isPresent()) {
-			alunoRepository.save(aluno);
+			return alunoRepository.save(aluno);
 		}
 		return null;
 	}

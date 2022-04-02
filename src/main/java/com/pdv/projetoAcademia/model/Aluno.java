@@ -1,13 +1,26 @@
 package com.pdv.projetoAcademia.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name="Aluno")
 public class Aluno {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	 private String nome;
+	@Column(name="nome")
+	private String nome;
 	 
-	 private Integer idade;
+	@Column(name="idade")
+	private Integer idade;
 	 
-	 private String nivel;
+	@Column(name="nivel")
+	private String nivel;
 
 	public String getNome() {
 		return nome;
