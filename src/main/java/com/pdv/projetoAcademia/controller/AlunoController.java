@@ -1,5 +1,7 @@
 package com.pdv.projetoAcademia.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +26,8 @@ public class AlunoController {
 	
 	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
-	public Aluno obterAluno () {
-		return alunoService.obterAluno();
+	public List<Aluno> obterAlunos () {
+		return alunoService.obterAlunos();
 	}
 	
 	@PostMapping
@@ -35,14 +38,14 @@ public class AlunoController {
 	
 	@PutMapping
 	@ResponseStatus(value = HttpStatus.OK)
-	public Aluno atualizarAluno () {
-		return alunoService.atualizarAluno();
+	public Aluno atualizarAluno (@RequestBody Aluno aluno) {
+		return alunoService.atualizarAluno(aluno);
 	}
 	
 	@DeleteMapping
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public Aluno deletarAluno () {
-		return alunoService.deletarAluno();
+	public void deletarAluno (@RequestParam(name="aluno_id") Long alunoId) {
+		alunoService.deletarAluno(alunoId);
 	}
 
 }

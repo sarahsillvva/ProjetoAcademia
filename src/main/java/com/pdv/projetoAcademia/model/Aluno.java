@@ -1,6 +1,8 @@
 package com.pdv.projetoAcademia.model;
 
 public class Aluno {
+	private Long id;
+	
 	 private String nome;
 	 
 	 private Integer idade;
@@ -33,6 +35,14 @@ public class Aluno {
 
 	public Aluno() {
 		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	 
 	 
